@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails',        '4.2.5'
+gem 'puma'
 gem 'devise'
 gem 'bcrypt'
 gem 'sass-rails',   '5.0.2'
