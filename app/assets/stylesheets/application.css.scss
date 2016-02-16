@@ -31,6 +31,7 @@ body { padding-top: 60px; }
 
 // Whatever application styles you have go last
 
+// ADMIN STYLES
 .admin-panel {
 	padding-top: 25px;
     margin-top: 25px;
@@ -51,5 +52,13 @@ body { padding-top: 60px; }
 .index-add-btn { 
 	width: 70%;
 	margin-top: 15px;
+}
+
+.nav-image {
+	padding-top: 0;
+}
+
+.nav-image img {
+	width: 200px;
 }
 
