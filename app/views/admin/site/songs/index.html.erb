@@ -1,0 +1,11 @@
+<div class="row">
+	<div class="col-sm-8">
+		<h1><i class="fa fa-music"></i> Songs</h1>
+	</div>
+	<div class="col-sm-4">
+		<%= link_to 'Add a song <i class="fa fa-plus"></i>'.html_safe, new_admin_site_song_path, class: "index-add-btn btn btn-default" %>
+	</div>
+</div>
+<% @songs.each do |song| %>
+	<p><%= song.name %> <%= song.soundcloud_url %> <%= link_to "Edit", edit_admin_site_song_path(song) %> Published_at: <%= song.published_at %></p>
+<% end %>

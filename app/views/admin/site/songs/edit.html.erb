@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="col-md-8">
+		<h2>Edit <i><%= @song.name %></i></h2>
+	</div>
+	<div class="col-md-4">
+	<% if @song.published? %>
+	<%= link_to "Unpublish", admin_site_songs_unpublish_path(@song), class: "publish-btn btn btn-danger btn-lg", method: :post %>
+	<% else %>
+	<%= link_to "Publish", admin_site_songs_publish_path(@song), class: "publish-btn btn btn-success btn-lg", method: :post %>
+	<% end %>
+	<p style="text-align: center;"><em>When published, the song will appear on the website.</em></p>
+	</div>
+</div>
+<%= simple_form_for [:admin, :site, @song] do |f| %>
+  <%= f.error_notification %>
+    <%= f.input :name, label: 'Song title' %>
+    <%= f.input :soundcloud_url, as: :url, hint: "Link to the song on Soundcloud." %>
+    <%= f.input :slug, as: :url, hint: "Cannot include spaces." %>
+  <div class="form-actions">
+    <%= f.button :submit, "Edit song" %>
+  </div>
+<% end %>

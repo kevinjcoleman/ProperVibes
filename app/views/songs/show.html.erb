@@ -1,0 +1,33 @@
+<h1 style="text-align: center;"><%= @song.name %></h1>
+<h2 style="text-align: center;">Mozado</h2>
+<div id="player"></div>
+<script>
+    (function() {
+        var script = document.createElement("script");
+
+        script.type = "text/javascript";
+        script.async = true;
+        script.src = "//sd.toneden.io/production/v2/toneden.loader.js";
+
+        var entry = document.getElementsByTagName("script")[0];
+        entry.parentNode.insertBefore(script, entry);
+    }());
+
+    ToneDenReady = window.ToneDenReady || [];
+    ToneDenReady.push(function() {
+        ToneDen.configure({
+            soundcloudConsumerKey: 'b2506665170d62f572895405ed7f9640'
+        });
+        // Modify the dom and urls parameters to position
+        // your player and select tracks/sets/artists to play.
+        ToneDen.player.create({
+            dom: "#player",
+            skin: "dark",
+            single: "true",
+            urls: [
+                "<%= @song.soundcloud_url %>"
+            ]
+
+        });
+    });
+</script>

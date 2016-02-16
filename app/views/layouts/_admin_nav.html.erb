@@ -1,0 +1,38 @@
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color: #0C0909;">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">ProperVibes Admin</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <%= nav_link "Users", admin_users_index_path %>
+            <li class="dropdown">
+            <a href="<%= admin_site_index_path %>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Site <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <%= nav_link "Songs", admin_site_songs_path %>
+                <%= nav_link "Events", admin_site_events_index_path %>
+                <%= nav_link "Press", admin_site_press_index_path %>
+                <%= nav_link "Artists", admin_site_artists_index_path %>
+              </ul>
+            </li>
+            <li><%= link_to 'Live site <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>'.html_safe, root_path %></li>
+          </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Settings</a></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "Log out", destroy_user_session_path, :method => :delete %></li>
+            </ul>
+            </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
