@@ -1,8 +1,8 @@
 <h1 style="text-align: center;"><%= @song.name %></h1>
 <h2 style="text-align: center;">Mozado</h2>
 <div id="player"></div>
-<script>
-    (function() {
+<script  defer='defer'>
+(function() {
         var script = document.createElement("script");
 
         script.type = "text/javascript";
@@ -12,6 +12,7 @@
         var entry = document.getElementsByTagName("script")[0];
         entry.parentNode.insertBefore(script, entry);
     }());
+
 
     ToneDenReady = window.ToneDenReady || [];
     ToneDenReady.push(function() {
@@ -30,4 +31,5 @@
 
         });
     });
+
 </script>
