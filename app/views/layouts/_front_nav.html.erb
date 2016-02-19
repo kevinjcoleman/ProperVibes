@@ -7,13 +7,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand nav-image" href="#"><%= image_tag('pv_logo_white.png', class: "img-responsive")%></a>
+      <%= link_to root_path, class: "navbar-brand nav-image" do %><%= image_tag('pv_logo_white.png', class: "img-responsive")%><% end  %>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><%= site_nav_link "Songs", songs_path, 'songs' %> </li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
