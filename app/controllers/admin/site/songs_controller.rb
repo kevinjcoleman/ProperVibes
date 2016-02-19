@@ -11,6 +11,7 @@ class Admin::Site::SongsController < ApplicationController
 
   def create
     @song = Song.create(name: params[:song][:name], soundcloud_url: params[:song][:soundcloud_url])
+    flash[:success] = "Song created!"
     redirect_to edit_admin_site_song_path @song 
   end
 
@@ -21,6 +22,7 @@ class Admin::Site::SongsController < ApplicationController
   def update
     @song = Song.find(params[:id])
     @song.update_attributes(song_params)
+    flash[:success] = "Song saved!"
     redirect_to edit_admin_site_song_path @song
   end
 
@@ -28,6 +30,7 @@ class Admin::Site::SongsController < ApplicationController
     @song = Song.find(params[:id])
     @song.published_at = Time.now
     @song.save
+    flash[:success] = "Song successfully published!"
     redirect_to edit_admin_site_song_path @song
   end
 
@@ -35,6 +38,7 @@ class Admin::Site::SongsController < ApplicationController
     @song = Song.find(params[:id])
     @song.published_at = nil
     @song.save
+    flash[:danger] = "Song unpublished!"
     redirect_to edit_admin_site_song_path @song
   end
 
