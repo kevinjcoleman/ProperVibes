@@ -1,0 +1,8 @@
+<h2>Create an artist</h2>
+<%= simple_form_for [:admin, :site, @artist] do |f| %>
+  <%= f.error_notification %>
+    <%= f.input :name, label: 'Name' %>
+  <div class="form-actions">
+    <%= f.button :submit, "Create artist" %>
+  </div>
+<% end %>

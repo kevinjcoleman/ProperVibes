@@ -1,2 +1,13 @@
-<h1>Admin::Artists#index</h1>
-<p>Find me in app/views/admin/artists/index.html.erb</p>
+<div class="row">
+	<div class="col-sm-8">
+		<h1><i class="fa fa-user"></i> Artists</h1>
+	</div>
+	<div class="col-sm-4">
+		<%= link_to 'Add an artist <i class="fa fa-user"></i>'.html_safe, new_admin_site_artist_path, class: "index-add-btn btn btn-default" %>
+	</div>
+</div>
+<% if @artists %>
+	<% @artists.each do |artist| %>
+		<p><%= artist.name %>  <%= link_to "Edit", edit_admin_site_artist_path(artist) %> </p>
+	<% end %>
+<% end %>

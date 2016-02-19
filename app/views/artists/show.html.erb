@@ -1,0 +1,59 @@
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+ 
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+ 
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+<div class="container">
+	<h3 style="text-align: center;"><%= @artist.name %></h3>
+	<div class="row">
+		<div class="col-md-8">
+			<div id="player"></div>
+		</div>
+		<div class="col-md-4">
+			<%= @artist.description %>
+		</div>
+	</div>
+</div>
+
+<script>
+
+(function() {
+        var script = document.createElement("script");
+
+        script.type = "text/javascript";
+        script.async = true;
+        script.src = "//sd.toneden.io/production/v2/toneden.loader.js";
+
+        var entry = document.getElementsByTagName("script")[0];
+        entry.parentNode.insertBefore(script, entry);
+    }());
+
+
+    ToneDenReady = window.ToneDenReady || [];
+    ToneDenReady.push(function() {
+        ToneDen.configure({
+            soundcloudConsumerKey: 'b2506665170d62f572895405ed7f9640'
+        });
+        // Modify the dom and urls parameters to position
+        // your player and select tracks/sets/artists to play.
+        ToneDen.player.create({
+            dom: "#player",
+            skin: "light",
+            tracksPerArtist: 10,
+            urls: [ "<%= @artist.soundcloud_profile %>" ]
+        });
+    });
+
+</script>

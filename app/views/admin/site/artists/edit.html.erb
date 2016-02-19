@@ -1,0 +1,14 @@
+<h2>Update <%= @artist.name %></h2>
+<%= simple_form_for [:admin, :site, @artist] do |f| %>
+  <%= f.error_notification %>
+    
+    <%= f.input :name, label: 'Name', class: "col-md-6" %>
+		<%= f.input :soundcloud_profile, label: 'Link to soundcloud profile', class: "col-md-6" %>
+		<%= f.input :facebook_page, label: 'Link to facebook page', class: "col-md-6" %>
+		<%= f.input :twitter_profile, label: 'Link to twitter profile', class: "col-md-6" %>
+		<%= f.input :description, label: 'Description' %> 
+
+  <div class="form-actions">
+    <%= f.button :submit, "Create artist" %>
+  </div>
+<% end %>

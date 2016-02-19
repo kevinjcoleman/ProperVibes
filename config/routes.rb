@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     namespace :site do 
-      get 'artists/index'
+      resources :artists
       resources :songs
       post 'songs/:id/publish', to: 'songs#publish', as: 'songs_publish'
       post 'songs/:id/unpublish', to: 'songs#unpublish', as: 'songs_unpublish'
@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 
   resources :songs, only: [:index, :show]
 
+  resources :artists, only: [:index, :show]
 
   namespace :admin do
     get '', to: 'dashboard#index', as: '/'

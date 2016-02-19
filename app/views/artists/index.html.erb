@@ -1,0 +1,9 @@
+<div class="container">
+	<% @artists.each do |artist| %>
+		<div class="panel panel-default">
+      <div class="panel-body">
+        <%= link_to artist.name, artist %>
+      </div>
+  	</div>
+	<% end %>
+</div>
