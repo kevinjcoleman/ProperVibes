@@ -1,0 +1,19 @@
+<footer class="footer">
+			<div class="col-md-6" style="text-align: center">
+				<% if current_user %>
+				    <p style="margin-bottom: 0px; margin-top: 10px;">Welcome back <%= current_user.email %>!
+				    </p>
+				    <p style="margin-bottom: 0;">
+				    	<%= link_to "Admin dashboard", admin_path %> | <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
+
+				    </p>
+				<% else %>
+				   <p style="margin-top: 15px;"><%= link_to "Log in", new_user_session_path %></p>
+				<% end %>
+			</div>
+			<div class="col-md-4">
+			</div>
+			<div class="col-md-4" style="text-align: center">
+				<p style="margin-top: 15px;">ProperVibes © 2016 | Created by <a href="http://www.kevincoleman.rocks">Kevin Coleman</a></p>
+			</div>
+</footer>

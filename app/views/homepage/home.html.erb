@@ -12,6 +12,60 @@
 				<%= link_to song.name, song %>
 			</div>
 		<% end %>
-	<div>
+	</div>
+
+	<footer class="footer" style="margin-bottom: 60px;">
+			<div class="col-md-6" style="text-align: center">
+				<% if current_user %>
+				    <p style="margin-bottom: 0px; margin-top: 10px;">Welcome back <%= current_user.email %>!
+				    </p>
+				    <p style="margin-bottom: 0;">
+				    	<%= link_to "Admin dashboard", admin_path %> | <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
+
+				    </p>
+				<% else %>
+				   <p style="margin-top: 15px;"><%= link_to "Log in", new_user_session_path %></p>
+				<% end %>
+			</div>
+			<div class="col-md-4">
+			</div>
+			<div class="col-md-4" style="text-align: center">
+				<p style="margin-top: 15px;">ProperVibes © 2016 | Created by <a href="http://www.kevincoleman.rocks">Kevin Coleman</a></p>
+			</div>
+</footer>
+
+	<div id="player" class="home-player" style="width: 100%; position: fixed; height: 60px; display: block; bottom: 0px;"></div>
 </div>
+
+<script>
+
+(function() {
+        var script = document.createElement("script");
+
+        script.type = "text/javascript";
+        script.async = true;
+        script.src = "//sd.toneden.io/production/v2/toneden.loader.js";
+
+        var entry = document.getElementsByTagName("script")[0];
+        entry.parentNode.insertBefore(script, entry);
+    }());
+
+
+    ToneDenReady = window.ToneDenReady || [];
+    ToneDenReady.push(function() {
+        ToneDen.configure({
+            soundcloudConsumerKey: 'b2506665170d62f572895405ed7f9640'
+        });
+        // Modify the dom and urls parameters to position
+        // your player and select tracks/sets/artists to play.
+        ToneDen.player.create({
+            dom: "#player",
+            skin: "dark",
+            mini: "true",
+            tracksPerArtist: 10,
+            urls: [ "https://soundcloud.com/propervibesrecs" ]
+        });
+    });
+
+</script>
 
