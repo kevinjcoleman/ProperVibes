@@ -33,7 +33,11 @@
 </script>
   </head>
   <body>
-  <%= render 'layouts/front_nav' %>
+  <% if current_page?(root_path) %>
+    <%= render 'layouts/home_nav' %>
+  <% else %>
+    <%= render 'layouts/front_nav' %>
+  <% end %>
     
      <%= render 'layouts/messages' %>
      <%= yield %>
