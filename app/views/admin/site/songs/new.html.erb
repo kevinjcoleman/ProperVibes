@@ -1,9 +1,12 @@
 <h2>Create a new song</h2>
-<%= simple_form_for [:admin, :site, @song] do |f| %>
+<%= simple_form_for [:admin, :site, @song], :defaults => {:required => false} do |f| %>
   <%= f.error_notification %>
     <%= f.input :name, label: 'Song title' %>
     <%= f.input :soundcloud_url, as: :url, hint: "Link to the song on Soundcloud." %>
+    <%= f.label "Upload a cover image" %>
+    <%= f.file_field :song_art, :label => "Upload a cover image" %>
+  </br>
   <div class="form-actions">
-    <%= f.button :submit, "Create song" %>
+    <%= f.button :submit, "Create song", class: "btn-success btn-lg" %>
   </div>
 <% end %>

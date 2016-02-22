@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   resources :songs, only: [:index, :show]
 
   resources :artists, only: [:index, :show]
+  resources :contact_forms, only: [:new, :create]
 
   namespace :admin do
     get '', to: 'dashboard#index', as: '/'

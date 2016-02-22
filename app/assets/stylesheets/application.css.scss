@@ -34,9 +34,9 @@ body { padding-top: 60px;
 // Whatever application styles you have go last
 
 // ADMIN STYLES
+
 .admin-panel {
-	padding-top: 25px;
-    margin-top: 25px;
+		padding-top: 25px;
 }
 
 .admin-site-content h1 {
@@ -55,6 +55,13 @@ body { padding-top: 60px;
 	width: 70%;
 	margin-top: 15px;
 }
+
+//EDIT STYLE
+.img-preview {
+	width: 100px;
+}
+
+
 
 .nav-image {
 	padding-top: 0;
@@ -141,4 +148,72 @@ body { padding-top: 60px;
 	margin-left: 1%;
 	margin-bottom: 2%;
 }
+
+.song-container {
+	img {
+	background-size:100% auto;
+	-webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  transition: opacity 1s;
+	}
+}
+
+.song-art:hover {
+	opacity: 0.4;
+}
+
+.song-description {
+	display: block;
+ 	margin: 0 auto;
+	padding: 3%;
+	max-width: 500px;
+	background-color: #242424;
+	text-align: left;
+	color: white;
+	a {
+		color: white;
+	}
+	a:hover {
+		text-decoration: none;
+		color: #BBBBBB;
+	}
+	p {
+		margin: 0;
+	}
+}
+
+img.center {
+    display: block;
+    margin: 0 auto;
+}
+
+
+.contact-container {
+	background-color: #F5F5F5;
+	padding: 2%;
+}
+
+.contact-button{
+	height: 20%;
+	button {
+		width: 80%;
+		display: block;
+    margin: 0 auto;
+    background-color: #242424;
+    color: white;
+    border: 1px white solid;
+	}
+		button:hover {
+    background-color: white;
+    color: #242424;
+    border: 1px black solid;
+	}
+		button:focus {
+			background-color: white;
+    	color: #242424;
+		}
+}
+
+
 

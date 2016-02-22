@@ -10,9 +10,13 @@ class Admin::Site::SongsController < ApplicationController
   end
 
   def create
-    @song = Song.create(name: params[:song][:name], soundcloud_url: params[:song][:soundcloud_url])
-    flash[:success] = "Song created!"
-    redirect_to edit_admin_site_song_path @song 
+    @song = Song.new(song_params)
+    if @song.save
+      flash[:success] = "Song created!"
+      redirect_to edit_admin_site_song_path @song 
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -28,10 +32,13 @@ class Admin::Site::SongsController < ApplicationController
 
   def publish
     @song = Song.find(params[:id])
-    @song.published_at = Time.now
-    @song.save
-    flash[:success] = "Song successfully published!"
-    redirect_to edit_admin_site_song_path @song
+    if @song.publish
+      flash[:success] = "Song successfully published!"
+      redirect_to edit_admin_site_song_path @song
+    else
+      flash[:danger] = "You need to add art to the song before you publish it!"
+      redirect_to edit_admin_site_song_path @song
+    end
   end
 
   def unpublish
@@ -49,7 +56,7 @@ class Admin::Site::SongsController < ApplicationController
   	end
 
     def song_params
-      params.require(:song).permit(:name, :soundcloud_url, :slug)
+      params.require(:song).permit(:name, :soundcloud_url, :slug, :song_art)
     end
 
 end

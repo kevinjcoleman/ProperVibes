@@ -20,6 +20,9 @@ gem "font-awesome-rails"
 gem 'bootsy'
 gem 'friendly_id'
 gem 'will_paginate', '~> 3.0.6'
+gem 'carrierwave'
+gem "fog"
+gem "mini_magick"
 
 
 

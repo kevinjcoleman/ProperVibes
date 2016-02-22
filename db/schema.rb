@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160219065301) do
+ActiveRecord::Schema.define(version: 20160222041626) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20160219065301) do
     t.datetime "updated_at",         null: false
   end
 
+  create_table "contact_forms", force: :cascade do |t|
+    t.text     "content"
+    t.string   "email"
+    t.integer  "contact_type"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "subject"
+  end
+
   create_table "songs", force: :cascade do |t|
     t.string   "slug"
     t.string   "name"
@@ -31,6 +40,7 @@ ActiveRecord::Schema.define(version: 20160219065301) do
     t.string   "soundcloud_url"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.string   "song_art"
   end
 
   add_index "songs", ["slug"], name: "index_songs_on_slug"

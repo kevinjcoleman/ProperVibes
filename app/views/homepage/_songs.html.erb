@@ -11,7 +11,15 @@
 <div class="row">
 	<% @songs.each do |song| %>
 		<div class='col-md-3'>
-			<%= link_to song.name, song %>
+			<div class="song-container">
+				<%= link_to song do %>
+					<img class="img-responsive song-art center" src="<%= song.song_art.url %>">
+				<% end %>
+				<div class="song-description">
+					<p><%= link_to song.name, song %></p>
+					<p>By <%= link_to "Artist", song %></p>
+				</div>
+			</div>
 		</div>
 	<% end %>
 </div>

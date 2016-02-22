@@ -11,12 +11,23 @@
 	<p style="text-align: center;"><em>When published, the song will appear on the website.</em></p>
 	</div>
 </div>
-<%= simple_form_for [:admin, :site, @song] do |f| %>
+<%= simple_form_for [:admin, :site, @song], :defaults => {:required => false} do |f| %>
   <%= f.error_notification %>
     <%= f.input :name, label: 'Song title' %>
     <%= f.input :soundcloud_url, as: :url, hint: "Link to the song on Soundcloud." %>
-    <%= f.input :slug, as: :url, hint: "Cannot include spaces." %>
+    <% if @song.song_art %>
+    	<%= f.label "Update cover image" %>
+	    <%= f.file_field :song_art, :label => "Upload a cover image" %>
+			<div class="img-preview">
+				<img src="<%= @song.song_art.url %>" class="img-responsive">
+			</div>
+  	<% else %>
+	    <%= f.label "Upload a cover image" %>
+	    <%= f.file_field :song_art, :label => "Upload a cover image" %>
+	  <% end %>
+  </br>
+
   <div class="form-actions">
-    <%= f.button :submit, "Edit song" %>
+    <%= f.button :submit, "Edit song", class: "btn-success btn-lg" %>
   </div>
 <% end %>
