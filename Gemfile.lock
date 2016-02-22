@@ -39,15 +39,11 @@ GEM
     addressable (2.4.0)
     ansi (1.5.0)
     arel (6.0.3)
-    autoprefixer-rails (6.3.1)
-      execjs
-      json
     bcrypt (3.1.10)
     binding_of_caller (0.7.3.pre1)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.3.6)
-      autoprefixer-rails (>= 5.2.1)
-      sass (>= 3.3.4)
+    bootstrap-sass (3.1.1.1)
+      sass (~> 3.2)
     bootswatch-rails (3.3.5)
       railties (>= 3.1)
     bootsy (2.2.1)
@@ -322,7 +318,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt
-  bootstrap-sass
+  bootstrap-sass (~> 3.1.1)
   bootswatch-rails
   bootsy
   byebug (= 3.4.0)
