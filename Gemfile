@@ -16,7 +16,7 @@ gem 'pry'
 gem 'simple_form'
 gem 'selenium-webdriver'
 gem 'bootswatch-rails'
-gem "font-awesome-rails"
+gem 'font-awesome-sass', '~> 4.4.0'
 gem 'bootsy'
 gem 'friendly_id'
 gem 'will_paginate', '~> 3.0.6'
