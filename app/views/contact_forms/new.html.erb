@@ -1,11 +1,11 @@
 <div class="container">
 	<h3>Contact ProperVibes</h3>
-	<%= simple_form_for contact_forms_path(@contact_form), :defaults => {:required => false} do |f| %>
-	  <%= f.error_notification %>
-	    <%= f.input :subject, placeholder: 'Subject' %>
-	    <%= f.input :email, as: :email, placeholder: 'Email' %>
-	    <%= f.input :content, as: :text, placeholder: 'Content', hint: "Give us a little more background about your request" %>
-	    <%= f.input :contact_type, collection: ContactForm.readable_keys %>
-	    <%= f.button :submit, "Submit", class: "btn-success btn-lg" %>
-	<% end %>
+	 <%= simple_form_for @contact_form, :url => contact_forms_path, :method => :post, :defaults => {:required => false} do |f| %>
+          <%= f.error_notification %>
+            <%= f.input :subject, placeholder: 'Subject' %>
+            <%= f.input :email, as: :email, placeholder: 'Email' %>
+            <%= f.input :content, placeholder: 'Content', hint: "Give us a little more background about your request" %>
+            <%= f.input :contact_type, collection: ContactForm.readable_keys, label: "What are you contacting us for?" %>
+            <%= f.button :submit, "Submit", class: "btn-success btn-lg" %>
+ 	<% end %>
 </div>
